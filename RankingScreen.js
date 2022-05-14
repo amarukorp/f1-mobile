@@ -10,42 +10,42 @@ export default function RankingScreen() {
   const [rankingTeams, setRankingTeams] = useState([]);
 
   // fetching Drivers info
-  // useEffect(() => {
-  //   const options = {
-  //     method: "GET",
-  //     headers: {
-  //       "X-RapidAPI-Host": "api-formula-1.p.rapidapi.com",
-  //       "X-RapidAPI-Key": "5fe71208f7msh132e9373f339ab5p1531b9jsnba3e51286fd6",
-  //     },
-  //   };
+  useEffect(() => {
+    const options = {
+      method: "GET",
+      headers: {
+        "X-RapidAPI-Host": "api-formula-1.p.rapidapi.com",
+        "X-RapidAPI-Key": "5fe71208f7msh132e9373f339ab5p1531b9jsnba3e51286fd6",
+      },
+    };
 
-  //   fetch(
-  //     "https://api-formula-1.p.rapidapi.com/rankings/drivers?season=2022",
-  //     options
-  //   )
-  //     .then((response) => response.json())
-  //     .then((data) => setRankingDrivers(data.response))
-  //     .catch((err) => console.error(err));
-  // }, []);
+    fetch(
+      "https://api-formula-1.p.rapidapi.com/rankings/drivers?season=2022",
+      options
+    )
+      .then((response) => response.json())
+      .then((data) => setRankingDrivers(data.response))
+      .catch((err) => console.error(err));
+  }, []);
 
-  // // fetching Teams info
-  // useEffect(() => {
-  //   const options = {
-  //     method: "GET",
-  //     headers: {
-  //       "X-RapidAPI-Host": "api-formula-1.p.rapidapi.com",
-  //       "X-RapidAPI-Key": "5fe71208f7msh132e9373f339ab5p1531b9jsnba3e51286fd6",
-  //     },
-  //   };
+  // fetching Teams info
+  useEffect(() => {
+    const options = {
+      method: "GET",
+      headers: {
+        "X-RapidAPI-Host": "api-formula-1.p.rapidapi.com",
+        "X-RapidAPI-Key": "5fe71208f7msh132e9373f339ab5p1531b9jsnba3e51286fd6",
+      },
+    };
 
-  //   fetch(
-  //     "https://api-formula-1.p.rapidapi.com/rankings/teams?season=2022",
-  //     options
-  //   )
-  //     .then((response) => response.json())
-  //     .then((data) => setRankingTeams(data.response))
-  //     .catch((err) => console.error(err));
-  // }, []);
+    fetch(
+      "https://api-formula-1.p.rapidapi.com/rankings/teams?season=2022",
+      options
+    )
+      .then((response) => response.json())
+      .then((data) => setRankingTeams(data.response))
+      .catch((err) => console.error(err));
+  }, []);
  
   const renderDriverItem = ({ item }) => (
     <ListItem>
@@ -77,6 +77,8 @@ export default function RankingScreen() {
           #{item.position}
         </ListItem.Title>
       </ListItem.Content>
+     
+
     </ListItem>
   );
   return (
@@ -87,7 +89,10 @@ export default function RankingScreen() {
         onPress={(value) => {
           setSelectedIndex(value);
         }}
-        containerStyle={{ marginBottom: 20 }}
+        containerStyle={{ marginBottom: 20}}
+        buttonStyle={{backgroundColor:'#018076'}}
+        selectedButtonStyle={{backgroundColor:'#02968b'}}
+        textStyle={{color:'#EFF5F9'}}
       />
       {selectedIndex === 0 ? (
         <View style={{marginBottom:'35%'}}>

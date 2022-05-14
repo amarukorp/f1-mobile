@@ -13,8 +13,8 @@ export default function SearchScreen() {
             placeholder='Search for some driver'
             onChangeText={text=>setSearch(text)}
             value={search}
-            round={true}
-            inputStyle={{color:'#E6E6E6'}}
+            lightTheme={true}
+            inputStyle={{color:'black'}}
             
         />
       </View>
