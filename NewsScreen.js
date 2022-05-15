@@ -20,10 +20,18 @@ export default function NewsScreen() {
     fetch('https://f1-news.p.rapidapi.com/news', options)
         .then(response => response.json())
         // cut the lenght of the news array to avoid react performance issues
-        .then(data => setNews(data.slice(0,30)))
+        .then(data => newsFiltering(data.slice(0,100)))
         .catch(err => console.error(err));
+  
+    
     },[])
 
+    // removing the repetitive news that where fetch from the api
+    const newsFiltering = (newsArray)=>{
+      let filteredNews = newsArray.filter((o)=>{return o.title!=="F1"})
+      setNews(filteredNews) 
+    }
+    
     const renderNewsItem = ({ item }) => (
         <ListItem>
      

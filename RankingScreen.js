@@ -3,6 +3,7 @@ import { View, Text } from "react-native";
 import { useState, useEffect } from "react";
 import { FlatList } from 'react-native';
 import { ListItem, Avatar, ButtonGroup } from '@rneui/themed';
+import { ListItemAccordion } from "@rneui/base/dist/ListItem/ListItem.Accordion";
 
 export default function RankingScreen() {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -47,6 +48,7 @@ export default function RankingScreen() {
       .catch((err) => console.error(err));
   }, []);
  
+
   const renderDriverItem = ({ item }) => (
     <ListItem>
       <Avatar rounded size={'medium'} source={{ uri: item.driver.image }} />
@@ -55,6 +57,7 @@ export default function RankingScreen() {
           {item.driver.name}
         </ListItem.Title>
         <ListItem.Subtitle>{item.team.name}</ListItem.Subtitle>
+        <Text>Points: {item.points==null? 0:item.points}</Text>
       </ListItem.Content>
       <ListItem.Content right>
         <ListItem.Title right style={{ color: "black", marginRight: "30%" }}>
@@ -63,6 +66,7 @@ export default function RankingScreen() {
       </ListItem.Content>
     </ListItem>
   );
+
   const renderTeamItem = ({ item }) => (
     <ListItem>
       <Avatar style={{width:80, height:40,}} size={'small'} source={{ uri: item.team.logo }} />
@@ -77,10 +81,10 @@ export default function RankingScreen() {
           #{item.position}
         </ListItem.Title>
       </ListItem.Content>
-     
-
     </ListItem>
   );
+
+  
   return (
     <View>
       <ButtonGroup

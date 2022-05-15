@@ -7,7 +7,7 @@ import HomeScreen from "./HomeScreen";
 
 import {FontAwesome} from '@expo/vector-icons';
 import RankingScreen from "./RankingScreen";
-import SearchScreen from "./SearchScreen";
+
 import RaceScreen from "./RaceScreen";
 import NewsScreen from "./NewsScreen";
 

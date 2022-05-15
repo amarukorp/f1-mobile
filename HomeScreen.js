@@ -7,37 +7,36 @@ import { format, parseISO } from "date-fns";
 import { Avatar } from 'react-native-elements';
 
 
-
-
 export default function HomeScreen() {
     const [firstTeam, setFirstTeam] = useState(
         {
-            "points": 157,
-            "position": 1,
-            "season": 2022,
+            "points": 0,
+            "position":0,
+            "season": 0,
             "team": {
-              "id": 3,
-              "logo": "https://media.api-sports.io/formula-1/teams/3.png",
-              "name": "Scuderia Ferrari",
+              "id": 0,
+              "logo": "",
+              "name": "",
             }
-        })
+        });
+
     const [firstDriver, setFirstDriver] = useState(
         {
             "behind": null,
             "driver": {
-              "abbr": "LEC",
-              "id": 34,
-              "image": "https://media.api-sports.io/formula-1/drivers/34.png",
-              "name": "Charles Leclerc",
+              "abbr": "",
+              "id": 0,
+              "image": " ",
+              "name": "",
               "number": 16,
             },
-            "points": 104,
-            "position": 1,
-            "season": 2022,
+            "points": 0,
+            "position": 0,
+            "season": 0,
             "team": {
-              "id": 3,
-              "logo": "https://media.api-sports.io/formula-1/teams/3.png",
-              "name": "Scuderia Ferrari",
+              "id": 0,
+              "logo": "",
+              "name": "",
             },
             "wins": null,
           }
@@ -46,91 +45,95 @@ export default function HomeScreen() {
 
               {
                 "circuit":{
-                  "id": 6,
-                  "image": "https://media.api-sports.io/formula-1/circuits/6.png",
-                  "name": "Circuit de Barcelona-Catalunya",
+                  "id": 0,
+                  "image": " ",
+                  "name": "",
                 },
                 "competition":{
-                  "id": 6,
+                  "id": 0,
                   "location":{
-                    "city": " Montmeló",
-                    "country": "Spain",
+                    "city": " ",
+                    "country": "",
                   },
-                  "name": "Spain Grand Prix",
+                  "name": "",
                 },
                 "date": "2022-05-22T16:00:00+03:00",
-                "distance": "307.6 Kms",
+                "distance": "",
                 "fastest_lap": {
                   "driver": {
                     "id": null,
                   },
                   "time": null,
                 },
-                "id": 1513,
+                "id": 0,
                 "laps": {
                   "current": null,
-                  "total": 66,
+                  "total": 0,
                 },
-                "season": 2022,
-                "status": "Scheduled",
+                "season": 0,
+                "status": "",
                 "timezone": "Europe/Helsinki",
-                "type": "Race",
+                "type": "",
                 "weather": null,
               }
             
     
     );
 
-
     //fetching top 1 team
+useEffect(()=>{
 
-    // const options = {
-    //     method: 'GET',
-    //     headers: {
-    //         'X-RapidAPI-Host': 'api-formula-1.p.rapidapi.com',
-    //         'X-RapidAPI-Key': '5fe71208f7msh132e9373f339ab5p1531b9jsnba3e51286fd6'
-    //     }
-    // };
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Host': 'api-formula-1.p.rapidapi.com',
+            'X-RapidAPI-Key': '5fe71208f7msh132e9373f339ab5p1531b9jsnba3e51286fd6'
+        }
+    };
     
-    // fetch('https://api-formula-1.p.rapidapi.com/rankings/teams?season=2022', options)
-    //     .then(response => response.json())
-    //     .then(data => setFirstTeam(data.response[0]))
-    //     .catch(err => console.error(err));
+    fetch('https://api-formula-1.p.rapidapi.com/rankings/teams?season=2022', options)
+        .then(response => response.json())
+        .then(data => setFirstTeam(data.response[0]))
+        .catch(err => console.error(err));
+},[])
 
     //fetching top 1 driver
+useEffect(()=>{
 
-    // const options = {
-    //     method: 'GET',
-    //     headers: {
-    //         'X-RapidAPI-Host': 'api-formula-1.p.rapidapi.com',
-    //         'X-RapidAPI-Key': '5fe71208f7msh132e9373f339ab5p1531b9jsnba3e51286fd6'
-    //     }
-    // };
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Host': 'api-formula-1.p.rapidapi.com',
+            'X-RapidAPI-Key': '5fe71208f7msh132e9373f339ab5p1531b9jsnba3e51286fd6'
+        }
+    };
     
-    // fetch('https://api-formula-1.p.rapidapi.com/rankings/drivers?season=2022', options)
-    //     .then(response => response.json())
-    //     .then(data => setFirstDriver(data.response[0]))
-    //     .catch(err => console.error(err));
+    fetch('https://api-formula-1.p.rapidapi.com/rankings/drivers?season=2022', options)
+        .then(response => response.json())
+        .then((data) => setFirstDriver(data.response[0]))
+        .catch(err => console.error(err));
+},[])
 
     //fetching next race
+useEffect(()=>{
 
-    // const options = {
-    //     method: 'GET',
-    //     headers: {
-    //         'X-RapidAPI-Host': 'api-formula-1.p.rapidapi.com',
-    //         'X-RapidAPI-Key': '5fe71208f7msh132e9373f339ab5p1531b9jsnba3e51286fd6'
-    //     }
-    // };
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Host': 'api-formula-1.p.rapidapi.com',
+            'X-RapidAPI-Key': '5fe71208f7msh132e9373f339ab5p1531b9jsnba3e51286fd6'
+        }
+    };
     
-    // fetch('https://api-formula-1.p.rapidapi.com/races?type=race&timezone=Europe%2FHelsinki&season=2022&next=1', options)
-    //     .then(response => response.json())
-    //     .then(data => setNextRace(data.response))
-    //     .catch(err => console.error(err));
+    fetch('https://api-formula-1.p.rapidapi.com/races?type=race&timezone=Europe%2FHelsinki&season=2022&next=1', options)
+        .then(response => response.json())
+        .then(data => setNextRace(data.response[0]))
+        .catch(err => console.error(err));
+},[])
 
 
     return (
       <SafeAreaView>
-        {/* <Text style={{fontSize:20, marginLeft:20, marginTop:10, fontWeight:'700'}}>Next Race: {format(parseISO(nextRace.date), 'dd-MM-yyyy HH:MM')}</Text> */}
         <ScrollView>
           <Card
             containerStyle={{
