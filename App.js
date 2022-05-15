@@ -1,5 +1,3 @@
-import { StatusBar } from "expo-status-bar";
-import { useState, useEffect } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -19,13 +17,15 @@ export default function App() {
   return (
     <NavigationContainer>
       <Tab.Navigator
+
          screenOptions={({route}) => ({  
            // Navigator can be customized using screenOptions
            headerStyle:{backgroundColor:'#004146'},
            headerTitleStyle:{color:'#EFF5F9', paddingBottom:'2%'},
-           tabBarStyle:{backgroundColor:'#004146', height:'11%'},
+           tabBarStyle:{backgroundColor:'#004146', height:'11%', paddingBottom:15},
            tabBarBadgeStyle:'#03BFB5',
            tabBarIconStyle:{marginTop:10},
+           
            
           
             tabBarIcon: ({ focused, color, size }) => { 

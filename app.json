@@ -27,6 +27,7 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "F1-mobile it's an app that shows you the latest formula 1 information!\ndeveloped as a project for mobile programming @Haaga-Helia"
   }
 }

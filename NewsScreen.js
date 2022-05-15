@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, FlatList } from 'react-native';
+import { View, FlatList } from 'react-native';
 import { useState, useEffect } from 'react';
 import RNUrlPreview from 'react-native-url-preview';
 import { ListItem } from 'react-native-elements';

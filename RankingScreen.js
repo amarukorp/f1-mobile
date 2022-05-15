@@ -3,7 +3,7 @@ import { View, Text } from "react-native";
 import { useState, useEffect } from "react";
 import { FlatList } from 'react-native';
 import { ListItem, Avatar, ButtonGroup } from '@rneui/themed';
-import { ListItemAccordion } from "@rneui/base/dist/ListItem/ListItem.Accordion";
+
 
 export default function RankingScreen() {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -84,7 +84,7 @@ export default function RankingScreen() {
     </ListItem>
   );
 
-  
+
   return (
     <View>
       <ButtonGroup
