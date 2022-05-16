@@ -15,7 +15,7 @@ export default function HomeScreen() {
             "season": 0,
             "team": {
               "id": 0,
-              "logo": "",
+              "logo": "-",
               "name": "",
             }
         });
@@ -26,7 +26,7 @@ export default function HomeScreen() {
             "driver": {
               "abbr": "",
               "id": 0,
-              "image": " ",
+              "image": "-",
               "name": "",
               "number": 16,
             },
@@ -35,7 +35,7 @@ export default function HomeScreen() {
             "season": 0,
             "team": {
               "id": 0,
-              "logo": "",
+              "logo": "-",
               "name": "",
             },
             "wins": null,
@@ -46,7 +46,7 @@ export default function HomeScreen() {
               {
                 "circuit":{
                   "id": 0,
-                  "image": " ",
+                  "image": "-",
                   "name": "",
                 },
                 "competition":{

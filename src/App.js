@@ -1,13 +1,13 @@
 import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import HomeScreen from "./HomeScreen";
-
 import {FontAwesome} from '@expo/vector-icons';
-import RankingScreen from "./RankingScreen";
 
-import RaceScreen from "./RaceScreen";
-import NewsScreen from "./NewsScreen";
+import HomeScreen from "./screens/HomeScreen";
+import RankingScreen from "./screens/RankingScreen";
+import RaceScreen from "./screens/RaceScreen";
+import NewsScreen from "./screens/NewsScreen";
+
 
 const Tab = createBottomTabNavigator();
 
